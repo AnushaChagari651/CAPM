@@ -1,0 +1,99 @@
+###
+GET http://localhost:4004/odata/v4/order-management/Customers('11111111-aaaa-4bbb-8ccc-000000000001')
+
+###
+POST http://localhost:4004/odata/v4/order-management/Customers
+Content-Type: application/json
+
+ {
+    "CustomerName": "Ram",
+    "Email": "ram.cha@gmail.com"
+}
+###
+POST http://localhost:4004/odata/v4/order-management/OrderItems
+Content-Type: application/json
+
+{
+  "ID": "44444444-dddd-4eee-8fff-000000000006",
+  "Parent_ID": "33333333-cccc-4ddd-8eee-000000000001",
+  "Product_ID": "22222222-bbbb-4ccc-8ddd-000000000002",
+  "Quantity": 1,
+  "TotalPrice": 20000.00
+}
+###
+POST http://localhost:4004/odata/v4/order-management/OrderItems
+Content-Type: application/json
+
+{
+  "ID": "44444444-dddd-4eee-8fff-000000000007",
+  "Parent_ID": "33333333-cccc-4ddd-8eee-000000000006",
+  "Product_ID": "22222222-bbbb-4ccc-8ddd-000000000006",
+  "Quantity": 1,
+  "TotalPrice": 20000.00
+}
+###
+POST http://localhost:4004/odata/v4/order-management/Orders
+Content-Type: application/json
+
+{
+  
+  "OrderDate": "2026-06-01",
+  "TotalAmount": 1500,
+  "Customer_ID": "11111111-aaaa-4bbb-8ccc-000000000001"
+
+}
+###
+GET http://localhost:4004/odata/v4/order-management/Orders('c0e600dd-0000-4c8c-bfe7-5c40780ca9b6')  
+###
+PATCH http://localhost:4004/odata/v4/order-management/Orders('c0e600dd-0000-4c8c-bfe7-5c40780ca9b6')
+Content-Type: application/json
+
+{
+    "TotalAmount": 2000
+}
+###
+PUT http://localhost:4004/odata/v4/order-management/Orders('c0e600dd-0000-4c8c-bfe7-5c40780ca9b6')
+Content-Type: application/json
+
+{
+  
+  "OrderDate": "2026-06-01",
+  "TotalAmount": 2500,
+  "Customer_ID": "11111111-aaaa-4bbb-8ccc-000000000001"
+}
+
+###
+DELETE http://localhost:4004/odata/v4/order-management/Orders('33333333-cccc-4ddd-8eee-000000000001')
+### Get Order Total (FUNCTION)
+GET http://localhost:4004/odata/v4/order-management/getOrderTotal(orderId='33333333-cccc-4ddd-8eee-000000000001')
+### Place Order (ACTION)
+POST http://localhost:4004/odata/v4/order-management/placeOrder
+Content-Type: application/json
+
+{
+  "customerId": "11111111-aaaa-4bbb-8ccc-000000000001",
+  "productId": "22222222-bbbb-4ccc-8ddd-000000000001",
+  "quantity": 1
+}
+ 
+### Get Order Total (FUNCTION)
+
+GET http://localhost:4004/odata/v4/order-management/getOrderTotal(orderId='33333333-cccc-4ddd-8eee-000000000001')
+ 
+### Place Order (ACTION)
+POST http://localhost:4004/odata/v4/order-management/placeOrder
+Content-Type: application/json
+ 
+{
+  "customerId": "11111111-aaaa-4bbb-8ccc-000000000001",
+  "productId": "22222222-bbbb-4ccc-8ddd-000000000001",
+  "quantity": 3
+}
+### Cancel Order (ACTION)
+POST http://localhost:4004/odata/v4/order-management/cancelOrder
+Content-Type: application/json
+
+{
+  "orderId": "2e85d6dc-3fe7-4aca-a06b-7fc58feb86d4"
+}
+ 
