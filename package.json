@@ -1,8 +1,11 @@
 {
-  "name": "DemoProject",
+  "name": "demoproject",
   "version": "1.0.0",
+  "private": true,
   "dependencies": {
-    "@sap/cds": "^9"
+    "@sap/cds": "^9",
+    "passport": "^0.7.0",
+    "passport-http": "^0.3.0"
   },
   "devDependencies": {
     "@cap-js/sqlite": "^2.4"
@@ -10,5 +13,25 @@
   "scripts": {
     "start": "cds-serve"
   },
-  "private": true
+  "cds": {
+    "requires": {
+      "auth": {
+        "kind": "basic",
+        "users": {
+          "admin": {
+            "password": "admin123",
+            "roles": ["Admin", "Editor", "Viewer"]
+          },
+          "editor": {
+            "password": "editor123",
+            "roles": ["Editor", "Viewer"]
+          },
+          "viewer": {
+            "password": "viewer123",
+            "roles": ["Viewer"]
+          }
+        }
+      }
+    }
+  }
 }

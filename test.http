@@ -78,10 +78,10 @@ Content-Type: application/json
  
 ### Get Order Total (FUNCTION)
 
-GET http://localhost:4004/odata/v4/order-management/getOrderTotal(orderId='33333333-cccc-4ddd-8eee-000000000001')
+GET http://viewer:viewer123@localhost:4004/odata/v4/order-management/getOrderTotal(orderId='33333333-cccc-4ddd-8eee-000000000001')
  
 ### Place Order (ACTION)
-POST http://localhost:4004/odata/v4/order-management/placeOrder
+POST http://admin:admin123@localhost:4004/odata/v4/order-management/placeOrder
 Content-Type: application/json
  
 {
@@ -90,10 +90,10 @@ Content-Type: application/json
   "quantity": 3
 }
 ### Cancel Order (ACTION)
-POST http://localhost:4004/odata/v4/order-management/cancelOrder
+POST http://editor:editor123@localhost:4004/odata/v4/order-management/cancelOrder
 Content-Type: application/json
 
 {
-  "orderId": "2e85d6dc-3fe7-4aca-a06b-7fc58feb86d4"
+  "orderId": "2a5b321e-d62e-4e57-b478-974174398469"
 }
  
